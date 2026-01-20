@@ -19,7 +19,7 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Create mailto link
-    const mailtoLink = `mailto:your-email@example.com?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${formData.email}`;
+    const mailtoLink = `mailto:nuwangimahesha@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${formData.email}`;
     window.location.href = mailtoLink;
     setFormData({ name: '', email: '', message: '' });
   };
@@ -40,7 +40,7 @@ function Contact() {
             </div>
             <div className="info-item">
               <h3>Email</h3>
-              <p>your-email@example.com</p>
+              <a href="mailto:nuwangimahesha@gmail.com">nuwangimahesha@gmail.com</a>
             </div>
             <div className="info-item">
               <h3>Location</h3>

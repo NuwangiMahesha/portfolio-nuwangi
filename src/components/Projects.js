@@ -155,8 +155,30 @@ function Projects() {
                         <img src={currentImage} alt={project.title} className="project-image" />
                         {images.length > 1 && (
                           <>
-                            <button className="nav-button prev" onClick={() => prevImage(project.id)}>❮</button>
-                            <button className="nav-button next" onClick={() => nextImage(project.id)}>❯</button>
+                            <button 
+                              className="nav-button prev" 
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                prevImage(project.id);
+                              }}
+                              type="button"
+                              aria-label="Previous image"
+                            >
+                              ❮
+                            </button>
+                            <button 
+                              className="nav-button next" 
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                nextImage(project.id);
+                              }}
+                              type="button"
+                              aria-label="Next image"
+                            >
+                              ❯
+                            </button>
                             <div className="image-counter">{currentImageIndex[project.id] + 1} / {images.length}</div>
                           </>
                         )}
