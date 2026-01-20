@@ -203,36 +203,40 @@
 
 @media (max-width: 768px) {
   .hero-cover-section {
-    height: 420px;
+    height: 320px;
   }
 
   .hero-content-overlay {
     padding: 0 1rem;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .hero-text-content {
     max-width: 100%;
+    text-align: center;
   }
 
   .hero-title {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
   }
 
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .profile-image {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
   }
 
   .hero-description-section {
-    padding: 50px 1rem;
+    padding: 40px 1rem;
   }
 
   .hero-description {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
   }
 
   .hero-buttons {
