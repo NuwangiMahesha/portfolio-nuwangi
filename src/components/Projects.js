@@ -45,7 +45,21 @@ function Projects() {
       video: '/screenshots/Recording 2026-01-20 180150.mp4'
     },
     'Juicy-Hub-E-Commerce-Platform': {
-      images: [],
+      images: [
+        '/screenshots/My E- commerce website_first.jpg',
+        '/screenshots/My E- commerce website1.jpg',
+        '/screenshots/My E- commerce website2.jpg',
+        '/screenshots/My E- commerce website3.jpg',
+        '/screenshots/My E- commerce website4.jpg',
+        '/screenshots/My E- commerce website5.jpg',
+        '/screenshots/My E- commerce website6.jpg',
+        '/screenshots/My E- commerce website8.jpg',
+        '/screenshots/My E- commerce website9.jpg',
+        '/screenshots/My E- commerce website10.jpg',
+        '/screenshots/My E- commerce website11.jpg',
+        '/screenshots/My E- commerce website12.jpg',
+        '/screenshots/My E- commerce websitenew.jpg'
+      ],
       video: null
     },
     'Web-Application-test_nuwangi': {
