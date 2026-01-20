@@ -19,7 +19,6 @@ function Projects() {
     try {
       const response = await fetch('https://api.github.com/users/NuwangiMahesha/repos?sort=updated&per_page=100');
       const data = await response.json();
-      // Filter out featured projects
       const featured = ['room_reservation_system', 'Juicy-Hub-E-Commerce-Platform', 'Web-Application-test_nuwangi'];
       const otherRepos = data.filter(repo => !featured.includes(repo.name));
       setAllRepos(otherRepos);
@@ -30,7 +29,6 @@ function Projects() {
     }
   };
 
-  // Hardcoded project data with permanent image/video paths
   const projectsData = {
     'room_reservation_system': {
       images: [
@@ -64,21 +62,21 @@ function Projects() {
     {
       id: 'room_reservation_system',
       title: 'Room Reservation System',
-      description: 'A comprehensive room booking and reservation management system with real-time availability tracking.',
+      description: 'A comprehensive room booking and reservation management system with real-time availability tracking and seamless user experience.',
       tech: ['React', 'Node.js', 'MongoDB', 'Express'],
       link: 'https://github.com/NuwangiMahesha/room_reservation_system'
     },
     {
       id: 'Juicy-Hub-E-Commerce-Platform',
       title: 'Juicy Hub - E-Commerce Platform',
-      description: 'Full-featured e-commerce platform for juice and beverage products with payment integration.',
+      description: 'Full-featured e-commerce platform for juice and beverage products with payment integration and inventory management.',
       tech: ['React', 'Firebase', 'Stripe', 'Tailwind CSS'],
       link: 'https://github.com/NuwangiMahesha/Juicy-Hub-E-Commerce-Platform'
     },
     {
       id: 'Web-Application-test_nuwangi',
       title: 'Web Application Test',
-      description: 'Advanced web application with comprehensive testing suite and quality assurance features.',
+      description: 'Advanced web application with comprehensive testing suite and quality assurance features for enterprise-level reliability.',
       tech: ['React', 'Jest', 'Testing Library', 'Webpack'],
       link: 'https://github.com/NuwangiMahesha/Web-Application-test_nuwangi'
     }
@@ -107,58 +105,64 @@ function Projects() {
   return (
     <section id="projects" className="projects">
       <div className="projects-container">
-        <h2 className="section-title">Featured Projects</h2>
-        <p className="section-subtitle">Showcasing my best work</p>
-        
-        <div className="projects-grid">
+        <div className="section-header">
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="section-subtitle">Showcasing my best work and expertise</p>
+        </div>
+
+        <div className="featured-projects">
           {featuredProjects.map((project, index) => {
             const projectMedia = projectsData[project.id];
             const images = projectMedia?.images || [];
             const currentImage = images[currentImageIndex[project.id]] || null;
             const videoUrl = projectMedia?.video;
+            const isEven = index % 2 === 0;
 
             return (
-              <div key={index} className="project-card">
-                <div className="project-image-container">
-                  {currentImage ? (
-                    <>
-                      <img src={currentImage} alt={project.title} className="project-image" />
-                      {images.length > 1 && (
-                        <>
-                          <button className="nav-button prev" onClick={() => prevImage(project.id)}>❮</button>
-                          <button className="nav-button next" onClick={() => nextImage(project.id)}>❯</button>
-                          <div className="image-counter">{currentImageIndex[project.id] + 1} / {images.length}</div>
-                        </>
-                      )}
-                    </>
-                  ) : (
-                    <div className="project-image-placeholder">
-                      <span>No images available</span>
-                    </div>
-                  )}
-                </div>
-
-                {videoUrl && (
-                  <div className="project-video-container">
-                    <video width="100%" height="auto" controls>
-                      <source src={videoUrl} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+              <div key={index} className={`featured-project ${isEven ? 'left' : 'right'}`}>
+                <div className="project-content">
+                  <div className="project-number">0{index + 1}</div>
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-tech">
+                    {project.tech.map((tech, i) => (
+                      <span key={i} className="tech-tag">{tech}</span>
+                    ))}
                   </div>
-                )}
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-cta">
+                    View Project <span>→</span>
+                  </a>
+                </div>
 
-                <div className="project-header">
-                  <h3>{project.title}</h3>
+                <div className="project-media">
+                  <div className="media-wrapper">
+                    {currentImage ? (
+                      <div className="image-container">
+                        <img src={currentImage} alt={project.title} className="project-image" />
+                        {images.length > 1 && (
+                          <>
+                            <button className="nav-button prev" onClick={() => prevImage(project.id)}>❮</button>
+                            <button className="nav-button next" onClick={() => nextImage(project.id)}>❯</button>
+                            <div className="image-counter">{currentImageIndex[project.id] + 1} / {images.length}</div>
+                          </>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="image-placeholder">
+                        <span>No images available</span>
+                      </div>
+                    )}
+
+                    {videoUrl && (
+                      <div className="video-container">
+                        <video width="100%" height="auto" autoPlay muted loop>
+                          <source src={videoUrl} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tech">
-                  {project.tech.map((tech, i) => (
-                    <span key={i} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
-                  View on GitHub →
-                </a>
               </div>
             );
           })}

@@ -6,7 +6,7 @@
 .hero-cover-section {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 550px;
   overflow: hidden;
 }
 
@@ -15,6 +15,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  animation: zoomIn 0.8s ease-out;
 }
 
 .cover-overlay {
@@ -23,7 +24,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.6));
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(30, 41, 59, 0.65));
   z-index: 1;
 }
 
@@ -47,24 +48,28 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
   max-width: 600px;
+  animation: slideInLeft 0.8s ease-out;
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 900;
   line-height: 1.1;
   color: #f1f5f9;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  letter-spacing: -1px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  letter-spacing: -1.5px;
 }
 
 .hero-subtitle {
-  font-size: 1.4rem;
-  color: #60a5fa;
-  font-weight: 600;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-profile-section {
@@ -72,21 +77,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: slideInRight 0.8s ease-out;
 }
 
 .profile-image {
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 20px 60px rgba(96, 165, 250, 0.4), 0 0 0 4px #0f172a;
+  box-shadow: 0 25px 60px rgba(96, 165, 250, 0.5), 0 0 0 4px #0f172a, inset 0 0 0 2px #60a5fa;
   animation: float 3s ease-in-out infinite;
   border: 4px solid #60a5fa;
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
 }
 
 .hero-description-section {
-  background: #1e293b;
-  padding: 60px 2rem;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  padding: 80px 2rem;
   border-top: 1px solid #334155;
 }
 
@@ -95,16 +106,18 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
   text-align: center;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .hero-description {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: #cbd5e1;
   line-height: 1.8;
   max-width: 700px;
+  font-weight: 500;
 }
 
 .hero-buttons {
@@ -112,6 +125,50 @@
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes float {
@@ -131,22 +188,22 @@
   }
 
   .hero-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .profile-image {
-    width: 240px;
-    height: 240px;
+    width: 260px;
+    height: 260px;
   }
 }
 
 @media (max-width: 768px) {
   .hero-cover-section {
-    height: 400px;
+    height: 420px;
   }
 
   .hero-content-overlay {
@@ -158,24 +215,24 @@
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .profile-image {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
   }
 
   .hero-description-section {
-    padding: 40px 1rem;
+    padding: 50px 1rem;
   }
 
   .hero-description {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .hero-buttons {
