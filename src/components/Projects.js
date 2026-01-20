@@ -29,46 +29,48 @@ function Projects() {
     }
   };
 
+  const publicUrl = process.env.PUBLIC_URL || '';
+
   const projectsData = {
     'room_reservation_system': {
       images: [
-        '/screenshots/Screenshot 2026-01-20 175539.png',
-        '/screenshots/Screenshot 2026-01-20 175657.png',
-        '/screenshots/Screenshot 2026-01-20 175727.png',
-        '/screenshots/Screenshot 2026-01-20 175754.png',
-        '/screenshots/Screenshot 2026-01-20 175936.png',
-        '/screenshots/Screenshot 2026-01-20 180007.png',
-        '/screenshots/Screenshot 2026-01-20 180026.png',
-        '/screenshots/Screenshot 2026-01-20 180408.png',
-        '/screenshots/Screenshot 2026-01-20 180454.png'
+        `${publicUrl}/screenshots/Screenshot 2026-01-20 175539.png`,
+        `${publicUrl}/screenshots/Screenshot 2026-01-20 175657.png`,
+        `${publicUrl}/screenshots/Screenshot 2026-01-20 175727.png`,
+        `${publicUrl}/screenshots/Screenshot 2026-01-20 175754.png`,
+        `${publicUrl}/screenshots/Screenshot 2026-01-20 175936.png`,
+        `${publicUrl}/screenshots/Screenshot 2026-01-20 180007.png`,
+        `${publicUrl}/screenshots/Screenshot 2026-01-20 180026.png`,
+        `${publicUrl}/screenshots/Screenshot 2026-01-20 180408.png`,
+        `${publicUrl}/screenshots/Screenshot 2026-01-20 180454.png`
       ],
-      video: '/screenshots/Recording 2026-01-20 180150.mp4'
+      video: `${publicUrl}/screenshots/Recording 2026-01-20 180150.mp4`
     },
     'Juicy-Hub-E-Commerce-Platform': {
       images: [
-        '/screenshots/My E- commerce website_first.jpg',
-        '/screenshots/My E- commerce website1.jpg',
-        '/screenshots/My E- commerce website2.jpg',
-        '/screenshots/My E- commerce website3.jpg',
-        '/screenshots/My E- commerce website4.jpg',
-        '/screenshots/My E- commerce website5.jpg',
-        '/screenshots/My E- commerce website6.jpg',
-        '/screenshots/My E- commerce website8.jpg',
-        '/screenshots/My E- commerce website9.jpg',
-        '/screenshots/My E- commerce website10.jpg',
-        '/screenshots/My E- commerce website11.jpg',
-        '/screenshots/My E- commerce website12.jpg',
-        '/screenshots/My E- commerce websitenew.jpg'
+        `${publicUrl}/screenshots/My E- commerce website_first.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website1.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website2.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website3.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website4.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website5.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website6.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website8.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website9.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website10.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website11.jpg`,
+        `${publicUrl}/screenshots/My E- commerce website12.jpg`,
+        `${publicUrl}/screenshots/My E- commerce websitenew.jpg`
       ],
       video: null
     },
     'Web-Application-test_nuwangi': {
       images: [
-        '/screenshots/welcome_to_company.png',
-        '/screenshots/latest_news.png',
-        '/screenshots/contact_us.png'
+        `${publicUrl}/screenshots/welcome_to_company.png`,
+        `${publicUrl}/screenshots/latest_news.png`,
+        `${publicUrl}/screenshots/contact_us.png`
       ],
-      video: '/screenshots/landing_page_video.mp4'
+      video: `${publicUrl}/screenshots/landing_page_video.mp4`
     }
   };
 
