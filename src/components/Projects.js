@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Projects.css';
 
 function Projects() {
@@ -13,6 +13,7 @@ function Projects() {
 
   useEffect(() => {
     fetchGitHubRepos();
+    preloadImages();
   }, []);
 
   const fetchGitHubRepos = async () => {
@@ -27,6 +28,15 @@ function Projects() {
       console.error('Error fetching repos:', error);
       setLoading(false);
     }
+  };
+
+  const preloadImages = () => {
+    Object.values(projectsData).forEach(project => {
+      project.images?.forEach(imageSrc => {
+        const img = new Image();
+        img.src = imageSrc;
+      });
+    });
   };
 
   const publicUrl = process.env.PUBLIC_URL || '';
@@ -101,9 +111,14 @@ function Projects() {
   const nextImage = (projectId) => {
     const images = projectsData[projectId]?.images || [];
     if (images.length > 0) {
+      const nextIndex = (currentImageIndex[projectId] + 1) % images.length;
+      // Preload next image
+      const nextImg = new Image();
+      nextImg.src = images[nextIndex];
+      
       setCurrentImageIndex(prev => ({
         ...prev,
-        [projectId]: (prev[projectId] + 1) % images.length
+        [projectId]: nextIndex
       }));
     }
   };
@@ -111,9 +126,14 @@ function Projects() {
   const prevImage = (projectId) => {
     const images = projectsData[projectId]?.images || [];
     if (images.length > 0) {
+      const prevIndex = currentImageIndex[projectId] === 0 ? images.length - 1 : currentImageIndex[projectId] - 1;
+      // Preload previous image
+      const prevImg = new Image();
+      prevImg.src = images[prevIndex];
+      
       setCurrentImageIndex(prev => ({
         ...prev,
-        [projectId]: prev[projectId] === 0 ? images.length - 1 : prev[projectId] - 1
+        [projectId]: prevIndex
       }));
     }
   };
@@ -154,7 +174,12 @@ function Projects() {
                   <div className="media-wrapper">
                     {currentImage ? (
                       <div className="image-container">
-                        <img src={currentImage} alt={project.title} className="project-image" />
+                        <img 
+                          src={currentImage} 
+                          alt={project.title} 
+                          className="project-image"
+                          loading="eager"
+                        />
                         {images.length > 1 && (
                           <>
                             <button 
