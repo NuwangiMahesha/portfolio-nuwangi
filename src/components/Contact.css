@@ -1,0 +1,135 @@
+.contact {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  padding: 80px 2rem;
+  color: #f1f5f9;
+  border-top: 1px solid #475569;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact .section-title {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact .section-subtitle {
+  color: #cbd5e1;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.info-item a,
+.info-item p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #cbd5e1;
+}
+
+.info-item a:hover {
+  opacity: 1;
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #f1f5f9;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #0f172a;
+  color: #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #64748b;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  background-color: #1e293b;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form .btn {
+  align-self: flex-start;
+  background-color: #60a5fa;
+  color: #0f172a;
+  font-weight: 600;
+  padding: 12px 32px;
+}
+
+.contact-form .btn:hover {
+  background-color: #93c5fd;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(96, 165, 250, 0.2);
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 40px 1rem;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-form .btn {
+    width: 100%;
+    align-self: stretch;
+  }
+}

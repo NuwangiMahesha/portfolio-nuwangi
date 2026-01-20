@@ -1,0 +1,267 @@
+.projects {
+  background-color: #0f172a;
+  padding: 80px 2rem;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.project-card {
+  background: #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
+  border-color: #6366f1;
+}
+
+.project-image-container {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.nav-button:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.nav-button.prev {
+  left: 10px;
+}
+
+.nav-button.next {
+  right: 10px;
+}
+
+.image-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.project-video-container {
+  width: 100%;
+  background: #000;
+  padding: 1rem;
+}
+
+.project-video-container video {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.project-header {
+  padding: 1.5rem 2rem 0.5rem;
+}
+
+.project-header h3 {
+  font-size: 1.3rem;
+  color: #f1f5f9;
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin: 0.5rem 2rem;
+  flex-grow: 1;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 2rem;
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.project-link {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin: 0 2rem 1.5rem 2rem;
+}
+
+.project-link:hover {
+  color: #ec4899;
+  transform: translateX(5px);
+}
+
+.other-repos {
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid #334155;
+}
+
+.other-repos h3 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.repos-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.repo-item {
+  background: #1e293b;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  transition: all 0.3s ease;
+}
+
+.repo-item:hover {
+  border-color: #6366f1;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  transform: translateY(-4px);
+}
+
+.repo-item h4 {
+  color: #f1f5f9;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.repo-item p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.repo-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.repo-tech-tag {
+  background-color: #334155;
+  color: #6366f1;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.repo-stars {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.repo-link {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.repo-link:hover {
+  color: #ec4899;
+}
+
+.loading-message {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #cbd5e1;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 40px 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image-container {
+    height: 200px;
+  }
+
+  .nav-button {
+    padding: 8px 12px;
+    font-size: 1.2rem;
+  }
+
+  .repos-list {
+    grid-template-columns: 1fr;
+  }
+}
