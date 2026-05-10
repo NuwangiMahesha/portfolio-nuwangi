@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import CV from './components/CV';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -33,6 +34,7 @@ function App() {
       <Hero />
       <Projects repos={repos} loading={loading} />
       <Skills />
+      <CV />
       <Contact />
       <Footer />
     </div>

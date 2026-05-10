@@ -4,8 +4,11 @@ import './Projects.css';
 function Projects() {
   const [currentImageIndex, setCurrentImageIndex] = useState({
     'room_reservation_system': 0,
+    'in10nt-influencer-market': 0,
     'Juicy-Hub-E-Commerce-Platform': 0,
-    'Web-Application-test_nuwangi': 0
+    'Web-Application-test_nuwangi': 0,
+    'branchworks-global': 0,
+    'stately-bunny': 0
   });
 
   const [allRepos, setAllRepos] = useState([]);
@@ -56,6 +59,10 @@ function Projects() {
       ],
       video: `${publicUrl}/screenshots/Recording 2026-01-20 180150.mp4`
     },
+    'in10nt-influencer-market': {
+      images: [],
+      video: null
+    },
     'Juicy-Hub-E-Commerce-Platform': {
       images: [
         `${publicUrl}/screenshots/My E- commerce website_first.jpg`,
@@ -74,6 +81,16 @@ function Projects() {
       ],
       video: null
     },
+    'branchworks-global': {
+      images: [],
+      video: null,
+      embedUrl: 'https://www.branchworksglobal.com/'
+    },
+    'stately-bunny': {
+      images: [],
+      video: null,
+      embedUrl: 'https://69fab7c0fdff7563cccecc7d--stately-bunny-b2c4aa.netlify.app/'
+    },
     'Web-Application-test_nuwangi': {
       images: [
         `${publicUrl}/screenshots/welcome_to_company.png`,
@@ -90,7 +107,18 @@ function Projects() {
       title: 'Room Reservation System',
       description: 'A comprehensive room booking and reservation management system with real-time availability tracking and seamless user experience.',
       tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-      link: 'https://github.com/NuwangiMahesha/room_reservation_system'
+      link: 'https://github.com/NuwangiMahesha/room_reservation_system',
+      liveUrl: 'https://in10nt.github.io/room_reservation_system-master/frontend/welcome.html',
+      isLive: true
+    },
+    {
+      id: 'in10nt-influencer-market',
+      title: 'In10nt Influencer Market Platform',
+      description: 'Innovative influencer marketplace platform connecting brands with content creators, featuring real-time analytics and campaign management.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Analytics'],
+      link: 'https://master.dj1fvbbqhyw0c.amplifyapp.com/',
+      liveUrl: 'https://master.dj1fvbbqhyw0c.amplifyapp.com/',
+      isLive: true
     },
     {
       id: 'Juicy-Hub-E-Commerce-Platform',
@@ -98,6 +126,24 @@ function Projects() {
       description: 'Full-featured e-commerce platform for juice and beverage products with payment integration and inventory management.',
       tech: ['React', 'Firebase', 'Stripe', 'Tailwind CSS'],
       link: 'https://github.com/NuwangiMahesha/Juicy-Hub-E-Commerce-Platform'
+    },
+    {
+      id: 'branchworks-global',
+      title: 'BranchWorks Global',
+      description: 'Professional corporate website showcasing global business solutions with modern design and seamless user experience.',
+      tech: ['React', 'Tailwind CSS', 'AWS', 'Responsive Design'],
+      link: 'https://www.branchworksglobal.com/',
+      liveUrl: 'https://www.branchworksglobal.com/',
+      isLive: true
+    },
+    {
+      id: 'stately-bunny',
+      title: 'Kyrose Global Church Website',
+      description: 'Modern church website featuring event management, sermon archives, and community engagement tools with responsive design.',
+      tech: ['React', 'CSS3', 'Netlify', 'Responsive Design'],
+      link: 'https://github.com/In10nt/kyrose-global-church',
+      liveUrl: 'https://69fab7c0fdff7563cccecc7d--stately-bunny-b2c4aa.netlify.app/',
+      isLive: true
     },
     {
       id: 'Web-Application-test_nuwangi',
@@ -165,9 +211,18 @@ function Projects() {
                       <span key={i} className="tech-tag">{tech}</span>
                     ))}
                   </div>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-cta">
-                    View Project <span>→</span>
-                  </a>
+                  <div className="project-links">
+                    {project.isLive && project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-cta live">
+                        <span className="live-indicator">●</span> View Live <span>→</span>
+                      </a>
+                    )}
+                    {!project.isLive && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-cta">
+                        View Code <span>→</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 <div className="project-media">
@@ -210,9 +265,33 @@ function Projects() {
                           </>
                         )}
                       </div>
+                    ) : projectMedia?.embedUrl ? (
+                      <div className="live-preview-container">
+                        <div className="live-badge">
+                          <span className="live-dot">●</span> Live Preview
+                        </div>
+                        <iframe 
+                          src={projectMedia.embedUrl}
+                          title={project.title}
+                          className="live-preview-iframe"
+                          loading="lazy"
+                          sandbox="allow-scripts allow-same-origin allow-forms"
+                        />
+                      </div>
+                    ) : project.isLive ? (
+                      <div className="live-preview-card">
+                        <div className="preview-icon">🚀</div>
+                        <h4>Live Website Available</h4>
+                        <p>Click "View Live" to explore this project</p>
+                        <div className="preview-features">
+                          {project.tech.slice(0, 3).map((tech, i) => (
+                            <span key={i} className="preview-tech">{tech}</span>
+                          ))}
+                        </div>
+                      </div>
                     ) : (
                       <div className="image-placeholder">
-                        <span>No images available</span>
+                        <span>No preview available</span>
                       </div>
                     )}
 

@@ -110,12 +110,48 @@
   color: #0f172a;
   font-weight: 600;
   padding: 12px 32px;
+  transition: all 0.3s ease;
 }
 
-.contact-form .btn:hover {
+.contact-form .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-form .btn:hover:not(:disabled) {
   background-color: #93c5fd;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(96, 165, 250, 0.2);
+}
+
+.status-message {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  animation: slideIn 0.3s ease-out;
+}
+
+.status-message.success {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-message.error {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
